@@ -14,7 +14,11 @@ pipeline {
     stage('Test App') {
      steps {
        script {
-          sh "kubectl apply -f test-deploy.yaml -n test"    
+         dir('chart') {
+          
+          sh "helm upgrade --install --force benjy-amdocs-app ."    
+         }
+          
        }
      }
     }
