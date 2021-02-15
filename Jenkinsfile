@@ -15,7 +15,7 @@ pipeline {
      steps {
        script {
          dir('chart') {
-          sh "kubectl delete svc benjy-amdocs-app-benchart"   
+          sh "kubectl delete svc benjy-amdocs-app-benchart -n jenkins"   
           sh "helm upgrade --install --force benjy-amdocs-app ."    
          }
           
