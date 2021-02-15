@@ -1,6 +1,6 @@
 pipeline {
 
-  agent any
+  agent main
 
   stages {
 
@@ -9,14 +9,20 @@ pipeline {
         git url:'https://github.com/benjyabr/amdocs-test.git', branch:'master'
       }
     }
-    
-    stage('Deploy App') {
-      steps {
-        script {
-          kubernetesDeploy(configs: "ben.yml", kubeconfigId: "kubeconfig")
-        }
-      }
+    stage('Test App') {
+     steps {
+       script {
+          sh "kubectl apply -f test-deploy.yaml -n test"    
+       }
+     }
     }
+//    stage('Deploy App') {
+//     steps {
+//       script {
+//          kubernetesDeploy(configs: "ben.yml", kubeconfigId: "kubeconfig")
+//        }
+//      }
+//    }
 
   }
 
