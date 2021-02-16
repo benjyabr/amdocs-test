@@ -26,9 +26,9 @@ pipeline {
        script {
          //def serviceIP =sh "minikube service --url grafana-test -n grafana"
          //echo "${serviceIP}"
-         sh"(NODE_PORT=$(kubectl get --namespace grafana -o jsonpath=\"{.spec.ports[0].nodePort}\" services grafana-test))"
-         sh "(NODE_IP=$(kubectl get nodes --namespace grafana -o jsonpath=\"{.items[0].status.addresses[0].address}\"))"
-         echo http://$NODE_IP:$NODE_PORT
+         def servicePort =sh kubectl get --namespace grafana -o jsonpath=\"{.spec.ports[0].nodePort}\" services grafana-test"
+         def serviceIP =sh "kubectl get nodes --namespace grafana -o jsonpath=\"{.items[0].status.addresses[0].address}\""
+         echo "http://${serviceIP+servicePort}"
          sh(script: "ngrok", args: [serviceIP, "--log=ngrok.OUT", ">", "/dev/null", "&"])
          echo "Tunnel will be available for two hours at IP: "
          sh "cat ngrok.OUT | awk -F \"=\" '/https:/{print $NF}' | tail -n 1"
