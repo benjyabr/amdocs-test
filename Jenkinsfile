@@ -36,7 +36,8 @@ pipeline {
 //         serviceIP =sh "kubectl get nodes --namespace grafana -o jsonpath=\"{.items[0].status.addresses[0].address}\""
          serviceURL = "http://${serviceIP}:${servicePort}"
          echo serviceURL
-         sh(script: "ngrok", args: [serviceURL, "--log=ngrok.OUT", ">", "/dev/null", "&"])
+         //sh(script: "ngrok", args: [serviceURL, "--log=ngrok.OUT", ">", "/dev/null", "&"])
+         echo "ngrok http "${serviceURL}" --log=ngrok.OUT > /dev/null &" "
          //echo "Tunnel will be available for two hours at IP: "
          //sh "cat ngrok.OUT | awk -F \"=\" '/https:/{print $NF}' | tail -n 1"
          }
