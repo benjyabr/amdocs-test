@@ -1,11 +1,39 @@
 pipeline {
-
+  environment {
+      imagename = "benjyabr/amdocstest"
+      registryCredential = 'benjyabr-dockerhub'
+      dockerImage = ''
+    }
   agent {
     label "main" 
   }
 
   stages {
-    stage('Deploy App') {
+    stage('Build') {
+      dockerImage = docker.build imagename
+      //app = docker.build("benjyabr/amdocstest:${env.BUILD_NUMBER}")
+      //app.tag(["benjyabr/amdocstest","latest"])
+    }
+  }
+  stage('Publish To Dockerhub') {
+      steps{
+        script {
+          docker.withRegistry( '', registryCredential ) {
+            dockerImage.push("$BUILD_NUMBER")
+             dockerImage.push('latest')
+
+          }
+        }
+      }
+    }
+  stage('Remove Unused docker image') {
+      steps{
+        sh "docker rmi $imagename:$BUILD_NUMBER"
+         sh "docker rmi $imagename:latest"
+
+      }
+  }
+  stage('Deploy App') {
      steps {
        script {
          dir('grafanachart') {
