@@ -40,11 +40,11 @@ pipeline {
      steps {
        script {
          k8sNameSpace = "weather"
-         k8sReleaseName = benjy-weather
+         k8sReleaseName = "benjy-weather"
          dir('chart') {
            sh "kubectl delete svc ${k8sReleaseName} -n ${k8sNameSpace} --ignore-not-found"   
           temp = sh (
-            script: "helm list --filter '${k8sReleaseName}' | grep benjy-weather",
+            script: "helm list --filter '${k8sReleaseName}' | grep ${k8sReleaseName}",
           returnStdout: true)
         if(temp){
             sh "helm uninstall ${k8sReleaseName} -n ${k8sNameSpace} "
