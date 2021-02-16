@@ -1,46 +1,49 @@
 let request = require('supertest');
 let app = require('../server.js');
 
-let res = `<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Test</title>
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
-  </head>
-  <body>
-    <div class="container">
-      <fieldset>
-        <form action="/" method="post">
-          <input name="city" type="text" class="ghost-input" placeholder="Enter a City" required>
-          <input type="submit" class="ghost-button" value="Get Weather">
-        </form>
+/**
+ * Test that root is accessible
+ */
+describe('Test that root is accessible', () => {
+    test('It should response with success code', (done) => {
+        request(app).get('/').then((response) => {
+            expect(response.statusCode).toBe(200);
+            done();
+        });
+    });
+});
 
+/**
+ * Test that a request with wrong params returns ERROR
+ */
+describe('Test that a request with wrong params returns ERROR', ()=> {
+    test('It shoud resposnse with error HTML', (done) => {
+        request(app)
+        .post('/')
+        .send({ city: 'Unknown city'})
+        .expect('Content-Type', /html/)
+        .then(response => {
+            expect(response.type).toEqual("text/html");
+            expect(response.text).toMatch("<p>Error, please try again</p>");
+            done()
+        })
+    });
+});
 
-
-          <p>Error, pldease try again</p>
-
-      </fieldset>
-    </div>
-  </body>
-</html>`
-
-describe('GET /', function(){
-  it('respond with html', function(done){
-    request(app)
-      .get('/')
-      .expect(200, done);
-  })
-  it('respond with html', function(done){
-    request(app)
-      .post('/')
-      .send({city: 'amsterdam'})
-      .expect('Content-Type', /html/)
-      .then(response => {
-        console.log(response.text)
-        response.text === res
-        done()
-      })
-  })
-})
+/**
+ * Test that a request with correct params returns result
+ */
+describe('Test that a request with correct params returns result', () => {
+    test('It should resposnse with success HTML', (done) => {
+       request(app)
+        .post('/')
+        .send({ city: 'Berlin'})
+        .expect('Content-Type', /html/)
+        .then(response => {
+            expect(response.type).toEqual("text/html");
+            expect(response.text).toMatch("degrees in Berlin");
+            done();
+        })
+    });
+    app.close(); // close app to prevent error of Jest not exiting after test completed
+});
