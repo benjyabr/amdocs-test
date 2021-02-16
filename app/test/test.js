@@ -19,7 +19,7 @@ let res = `<!DOCTYPE html>
 
 
 
-          <p>Error, please try again</p>
+          <p>Error, pldease try again</p>
 
       </fieldset>
     </div>
