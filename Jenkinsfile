@@ -3,7 +3,7 @@ pipeline {
       imagename = "benjyabr/amdocstest"
       registryCredential = 'benjyabr-dockerhub'
       dockerImage = ''
-    }
+  }
   agent {
     label "main" 
   }
@@ -43,7 +43,7 @@ pipeline {
          }
        }
      }
-    }
+  }
     stage('Expose ngrok') {
      steps {
        script {
@@ -70,4 +70,3 @@ pipeline {
     }
     
   }
-}
