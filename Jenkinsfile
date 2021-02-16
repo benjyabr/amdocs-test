@@ -11,15 +11,23 @@ pipeline {
         git url:'https://github.com/benjyabr/amdocs-test.git', branch:'master'
       }
     }
-    stage('Test App') {
+    stage('Deploy App') {
      steps {
        script {
-         dir('chart') {
-          sh "kubectl delete svc benjy-amdocs-app-benchart -n jenkins --ignore-not-found"   
-          sh "helm upgrade --install --force benjy-amdocs-app ."
-          sh "" 
+         dir('grafanachart') {
+          sh "kubectl delete svc grafana-test -n grafana --ignore-not-found"   
+          sh "helm upgrade --install --force grafana-test . -n grafana"
          }
-          
+       }
+     }
+    }
+    stage('Expose ngrok') {
+     steps {
+       script {
+         sh "ngrok http $(minikube service --url grafana-test -n grafana) --log=ngrok.OUT > /dev/null &"
+         echo "Tunnel will be available for two hours at IP: "
+         sh "cat ngrok.OUT | awk -F "=" '/https:/{print $NF}' | tail -n 1"
+         }
        }
      }
     }
