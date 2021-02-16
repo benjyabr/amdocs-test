@@ -11,8 +11,8 @@ image:
   tag: ""
 
 imagePullSecrets: []
-nameOverride: "benjy-chart-test"
-fullnameOverride: "benjy-chart"
+nameOverride: "benjy-amdocs-app"
+fullnameOverride: "benjy-amdocs-app-benchart"
 
 serviceAccount:
   # Specifies whether a service account should be created
@@ -21,7 +21,7 @@ serviceAccount:
   annotations: {}
   # The name of the service account to use.
   # If not set and create is true, a name is generated using the fullname template
-  name: "jenkins"
+  name: "benjy-amdocs"
 
 podAnnotations: {}
 
