@@ -1,7 +1,7 @@
 pipeline {
   environment {
       imagename = "benjyabr/amdocstest"
-      registryCredential = 'benjyabr-dockerhub'
+      registryCredential = 'dockerhub-credentials'
       dockerImage = ''
   }
   agent {
