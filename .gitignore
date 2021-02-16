@@ -34,3 +34,4 @@ build/
 
 ### Custom ###
 ngrok.OUT
+app/node_modules/
