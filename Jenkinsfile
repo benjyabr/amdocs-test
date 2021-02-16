@@ -33,10 +33,9 @@ pipeline {
           returnStdout: true)
         if(temp){
             echo "Tunnel will be available for two hours at URL: ${temp}"
-            sh "ls -alh"
         }
         else{
-          echo "dfdfbgdfb ${temp}"
+          echo "Tunnel Failed, Check "
         }
        }
      }
