@@ -14,7 +14,6 @@ pipeline {
       //app = docker.build("benjyabr/amdocstest:${env.BUILD_NUMBER}")
       //app.tag(["benjyabr/amdocstest","latest"])
     }
-  }
   stage('Publish To Dockerhub') {
       steps{
         script {
@@ -70,3 +69,4 @@ pipeline {
     }
     
   }
+}
