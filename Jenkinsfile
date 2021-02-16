@@ -69,7 +69,7 @@ pipeline {
      steps {
        script {
          servicePort = sh (
-          script: "kubectl get --namespace ${k8sNameSpace} -o jsonpath=\"{.spec.ports[0].nodePort}\" services grafana-test",
+          script: "kubectl get --namespace ${k8sNameSpace} -o jsonpath=\"{.spec.ports[0].nodePort}\" services ${k8sReleaseName}",
           returnStdout: true)
          serviceIP = sh (
           script: "kubectl get nodes --namespace ${k8sNameSpace} -o jsonpath=\"{.items[0].status.addresses[0].address}\"",
