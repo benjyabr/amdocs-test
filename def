@@ -1,0 +1,76 @@
+t=2021-02-16T08:48:51+0000 lvl=info msg="no configuration paths supplied"
+t=2021-02-16T08:48:51+0000 lvl=info msg="ignoring default config path, could not stat it" path=/root/.ngrok2/ngrok.yml err="stat /root/.ngrok2/ngrok.yml: no such file or directory"
+t=2021-02-16T08:48:51+0000 lvl=info msg="starting web service" obj=web addr=127.0.0.1:4040
+t=2021-02-16T08:49:40+0000 lvl=info msg="no configuration paths supplied"
+t=2021-02-16T08:49:40+0000 lvl=info msg="ignoring default config path, could not stat it" path=/root/.ngrok2/ngrok.yml err="stat /root/.ngrok2/ngrok.yml: no such file or directory"
+t=2021-02-16T08:49:40+0000 lvl=info msg="starting web service" obj=web addr=127.0.0.1:4040
+t=2021-02-16T08:49:40+0000 lvl=info msg="tunnel session started" obj=tunnels.session
+t=2021-02-16T08:49:40+0000 lvl=info msg="client session established" obj=csess id=cdd3a8f0fdae
+t=2021-02-16T08:49:40+0000 lvl=info msg="started tunnel" obj=tunnels name="command_line (http)" addr=http://172.31.23.53:30583 url=http://bf0251eb268a.ngrok.io
+t=2021-02-16T08:49:40+0000 lvl=info msg="started tunnel" obj=tunnels name=command_line addr=http://172.31.23.53:30583 url=https://bf0251eb268a.ngrok.io
+t=2021-02-16T08:49:43+0000 lvl=info msg="Got quit command" obj=consoleui
+t=2021-02-16T08:49:43+0000 lvl=info msg="received stop request" obj=app stopReq="{err:<nil> restart:false}"
+t=2021-02-16T08:49:43+0000 lvl=info msg="session closing" obj=tunnels.session err=nil
+t=2021-02-16T08:50:13+0000 lvl=info msg="no configuration paths supplied"
+t=2021-02-16T08:50:13+0000 lvl=info msg="ignoring default config path, could not stat it" path=/root/.ngrok2/ngrok.yml err="stat /root/.ngrok2/ngrok.yml: no such file or directory"
+t=2021-02-16T08:50:13+0000 lvl=info msg="starting web service" obj=web addr=127.0.0.1:4040
+t=2021-02-16T08:50:13+0000 lvl=info msg="tunnel session started" obj=tunnels.session
+t=2021-02-16T08:50:13+0000 lvl=info msg="client session established" obj=csess id=d34cf248823e
+t=2021-02-16T08:50:13+0000 lvl=info msg="started tunnel" obj=tunnels name="command_line (http)" addr=http://172.31.23.53:30583 url=http://5be2d8e2fc1f.ngrok.io
+t=2021-02-16T08:50:13+0000 lvl=info msg="started tunnel" obj=tunnels name=command_line addr=http://172.31.23.53:30583 url=https://5be2d8e2fc1f.ngrok.io
+t=2021-02-16T08:50:15+0000 lvl=info msg="Got quit command" obj=consoleui
+t=2021-02-16T08:50:15+0000 lvl=info msg="received stop request" obj=app stopReq="{err:<nil> restart:false}"
+t=2021-02-16T08:50:15+0000 lvl=info msg="session closing" obj=tunnels.session err=nil
+t=2021-02-16T08:51:00+0000 lvl=info msg="no configuration paths supplied"
+t=2021-02-16T08:51:00+0000 lvl=info msg="ignoring default config path, could not stat it" path=/root/.ngrok2/ngrok.yml err="stat /root/.ngrok2/ngrok.yml: no such file or directory"
+t=2021-02-16T08:51:00+0000 lvl=info msg="starting web service" obj=web addr=127.0.0.1:4040
+t=2021-02-16T08:51:51+0000 lvl=info msg="no configuration paths supplied"
+t=2021-02-16T08:51:51+0000 lvl=info msg="ignoring default config path, could not stat it" path=/root/.ngrok2/ngrok.yml err="stat /root/.ngrok2/ngrok.yml: no such file or directory"
+t=2021-02-16T08:51:51+0000 lvl=warn msg="can't bind default web address, trying alternatives" obj=web addr=127.0.0.1:4040
+t=2021-02-16T08:51:51+0000 lvl=info msg="starting web service" obj=web addr=127.0.0.1:4041
+t=2021-02-16T08:52:02+0000 lvl=info msg="no configuration paths supplied"
+t=2021-02-16T08:52:02+0000 lvl=info msg="ignoring default config path, could not stat it" path=/root/.ngrok2/ngrok.yml err="stat /root/.ngrok2/ngrok.yml: no such file or directory"
+t=2021-02-16T08:52:02+0000 lvl=warn msg="can't bind default web address, trying alternatives" obj=web addr=127.0.0.1:4040
+t=2021-02-16T08:52:02+0000 lvl=info msg="starting web service" obj=web addr=127.0.0.1:4042
+t=2021-02-16T08:52:02+0000 lvl=info msg="tunnel session started" obj=tunnels.session
+t=2021-02-16T08:52:02+0000 lvl=info msg="client session established" obj=csess id=19a1541b7440
+t=2021-02-16T08:52:02+0000 lvl=info msg="started tunnel" obj=tunnels name="command_line (http)" addr=http://172.31.23.53:30583 url=http://1e3e06877ddd.ngrok.io
+t=2021-02-16T08:52:02+0000 lvl=info msg="started tunnel" obj=tunnels name=command_line addr=http://172.31.23.53:30583 url=https://1e3e06877ddd.ngrok.io
+t=2021-02-16T08:53:12+0000 lvl=info msg="join connections" obj=join id=d22177568adc l=172.31.23.53:30583 r=213.57.243.9:9941
+t=2021-02-16T08:53:13+0000 lvl=info msg="join connections" obj=join id=d81086b905b8 l=172.31.23.53:30583 r=213.57.243.9:9941
+t=2021-02-16T08:53:13+0000 lvl=info msg="join connections" obj=join id=70885098bb88 l=172.31.23.53:30583 r=213.57.243.9:9941
+t=2021-02-16T08:53:13+0000 lvl=info msg="join connections" obj=join id=d744b0e1c32c l=172.31.23.53:30583 r=213.57.243.9:9941
+t=2021-02-16T08:53:13+0000 lvl=info msg="join connections" obj=join id=79ba32230dc9 l=172.31.23.53:30583 r=213.57.243.9:9941
+t=2021-02-16T08:53:13+0000 lvl=info msg="join connections" obj=join id=87bb271346a7 l=172.31.23.53:30583 r=213.57.243.9:9941
+t=2021-02-16T08:53:13+0000 lvl=info msg="join connections" obj=join id=bfec26f8ca75 l=172.31.23.53:30583 r=213.57.243.9:9941
+t=2021-02-16T08:53:49+0000 lvl=info msg="received stop request" obj=app stopReq="{err:<nil> restart:false}"
+t=2021-02-16T08:53:49+0000 lvl=info msg="session closing" obj=tunnels.session err=nil
+t=2021-02-16T08:54:02+0000 lvl=info msg="no configuration paths supplied"
+t=2021-02-16T08:54:02+0000 lvl=info msg="ignoring default config path, could not stat it" path=/root/.ngrok2/ngrok.yml err="stat /root/.ngrok2/ngrok.yml: no such file or directory"
+t=2021-02-16T08:54:02+0000 lvl=warn msg="can't bind default web address, trying alternatives" obj=web addr=127.0.0.1:4040
+t=2021-02-16T08:54:02+0000 lvl=info msg="starting web service" obj=web addr=127.0.0.1:4042
+t=2021-02-16T08:54:02+0000 lvl=info msg="tunnel session started" obj=tunnels.session
+t=2021-02-16T08:54:02+0000 lvl=info msg="client session established" obj=csess id=9d459f1841ed
+t=2021-02-16T08:54:03+0000 lvl=info msg="started tunnel" obj=tunnels name="command_line (http)" addr=http://172.31.23.53:30583 url=http://6dbfa235bcd1.ngrok.io
+t=2021-02-16T08:54:03+0000 lvl=info msg="started tunnel" obj=tunnels name=command_line addr=http://172.31.23.53:30583 url=https://6dbfa235bcd1.ngrok.io
+t=2021-02-16T09:07:51+0000 lvl=info msg="no configuration paths supplied"
+t=2021-02-16T09:07:51+0000 lvl=info msg="ignoring default config path, could not stat it" path=/root/.ngrok2/ngrok.yml err="stat /root/.ngrok2/ngrok.yml: no such file or directory"
+t=2021-02-16T09:07:51+0000 lvl=warn msg="can't bind default web address, trying alternatives" obj=web addr=127.0.0.1:4040
+t=2021-02-16T09:07:51+0000 lvl=info msg="starting web service" obj=web addr=127.0.0.1:4043
+t=2021-02-16T09:07:51+0000 lvl=info msg="tunnel session started" obj=tunnels.session
+t=2021-02-16T09:07:51+0000 lvl=info msg="client session established" obj=csess id=84b2de5c6022
+t=2021-02-16T09:07:51+0000 lvl=info msg="started tunnel" obj=tunnels name="command_line (http)" addr=http://172.31.23.53:30583 url=http://54520019d0ee.ngrok.io
+t=2021-02-16T09:07:51+0000 lvl=info msg="started tunnel" obj=tunnels name=command_line addr=http://172.31.23.53:30583 url=https://54520019d0ee.ngrok.io
+t=2021-02-16T09:07:57+0000 lvl=info msg="received stop request" obj=app stopReq="{err:<nil> restart:false}"
+t=2021-02-16T09:07:57+0000 lvl=info msg="session closing" obj=tunnels.session err=nil
+t=2021-02-16T09:08:01+0000 lvl=info msg="no configuration paths supplied"
+t=2021-02-16T09:08:01+0000 lvl=info msg="ignoring default config path, could not stat it" path=/root/.ngrok2/ngrok.yml err="stat /root/.ngrok2/ngrok.yml: no such file or directory"
+t=2021-02-16T09:08:01+0000 lvl=warn msg="can't bind default web address, trying alternatives" obj=web addr=127.0.0.1:4040
+t=2021-02-16T09:08:01+0000 lvl=info msg="starting web service" obj=web addr=127.0.0.1:4043
+t=2021-02-16T09:08:01+0000 lvl=info msg="tunnel session started" obj=tunnels.session
+t=2021-02-16T09:08:01+0000 lvl=info msg="client session established" obj=csess id=234c70f970a3
+t=2021-02-16T09:08:02+0000 lvl=info msg="started tunnel" obj=tunnels name="command_line (http)" addr=http://172.31.23.53:30583 url=http://dfd56e0aa264.ngrok.io
+t=2021-02-16T09:08:02+0000 lvl=info msg="started tunnel" obj=tunnels name=command_line addr=http://172.31.23.53:30583 url=https://dfd56e0aa264.ngrok.io
+t=2021-02-16T09:09:11+0000 lvl=info msg="Got quit command" obj=consoleui
+t=2021-02-16T09:09:11+0000 lvl=info msg="received stop request" obj=app stopReq="{err:<nil> restart:false}"
+t=2021-02-16T09:09:11+0000 lvl=info msg="session closing" obj=tunnels.session err=nil
