@@ -60,10 +60,10 @@ pipeline {
                   serviceURL = "http://${serviceIP}:${servicePort}"
                   sh "PATH=$PATH:/sbin; JENKINS_NODE_COOKIE=dontkillme  ngrok http  ${serviceURL} --log=stdout > ngrok.OUT &"
                   sleep time: 1000, unit: 'MILLISECONDS'
-                  temp = sh (
+                  ngrokOutput = sh (
                       script: "awk -F \"=\" '/https:/{print \$NF}' ngrok.OUT",
                       returnStdout: true)
-                  if(temp) {
+                  if(ngrokOutput) {
                       echo "Tunnel will be available for two hours at URL: ${temp}"
                   }
                   else{
