@@ -3,10 +3,10 @@ WORKDIR /app
 COPY app/package.json app/package-lock.json app/server.js ./
 COPY app/views ./views
 RUN npm install --production
+EXPOSE 3000
 
 FROM base as test
 WORKDIR /app
-
 RUN npm install
 COPY app/test ./test
 RUN npm run test
