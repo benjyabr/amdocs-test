@@ -1,13 +1,18 @@
-FROM node:13.2.0 as runner
-
+FROM node:13.2.0 as base
 WORKDIR /app
-COPY app/package.json .
-COPY app/package-lock.json .
+COPY app/package.json app/package-lock.json app/server.js ./
+COPY app/views ./views
+RUN npm install --production
 
-run npm install
-COPY app/ .
+FROM base as test
+WORKDIR /app
 
-run npm run test
-EXPOSE 3000
-entrypoint ["npm","start"] 
+RUN npm install
+COPY app/test ./test
+RUN npm run test
 
+FROM base as prodline
+WORKDIR /app 
+RUN ls -alhR ./
+COPY app/public ./public
+ENTRYPOINT npm start
