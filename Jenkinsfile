@@ -27,7 +27,7 @@ pipeline {
          def serviceIP =sh "minikube service --url grafana-test -n grafana"
          echo "${serviceIP}"
         
-         sh(script: "ngrok", args: ["serviceIP, "--log=ngrok.OUT" ">" "/dev/null" "&"
+         sh(script: "ngrok", args: [serviceIP, "--log=ngrok.OUT" ">" "/dev/null" "&"
          echo "Tunnel will be available for two hours at IP: "
          sh "cat ngrok.OUT | awk -F "=" '/https:/{print $NF}' | tail -n 1"
          }
