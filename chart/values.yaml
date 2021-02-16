@@ -12,7 +12,7 @@ image:
 
 imagePullSecrets: []
 nameOverride: "benjy-weather-app"
-fullnameOverride: "benjy-weather-chart"
+fullnameOverride: "benjy-weather"
 
 serviceAccount:
   # Specifies whether a service account should be created
