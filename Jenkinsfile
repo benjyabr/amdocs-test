@@ -37,8 +37,8 @@ pipeline {
          serviceURL = "http://${serviceIP}:${servicePort}"
          echo serviceURL
          sh(script: "ngrok", args: [serviceURL, "--log=ngrok.OUT", ">", "/dev/null", "&"])
-         echo "Tunnel will be available for two hours at IP: "
-         sh "cat ngrok.OUT | awk -F \"=\" '/https:/{print $NF}' | tail -n 1"
+         //echo "Tunnel will be available for two hours at IP: "
+         //sh "cat ngrok.OUT | awk -F \"=\" '/https:/{print $NF}' | tail -n 1"
          }
        }
      }
