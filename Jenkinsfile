@@ -24,7 +24,7 @@ pipeline {
     stage('Expose ngrok') {
      steps {
        script {
-         sh "ngrok http $(minikube service --url grafana-test -n grafana) --log=ngrok.OUT > /dev/null &"
+         sh "ngrok http $(minikube service --url grafana-test -n grafana) --log=ngrok.OUT > /dev/null \&"
          echo "Tunnel will be available for two hours at IP: "
          sh "cat ngrok.OUT | awk -F "=" '/https:/{print $NF}' | tail -n 1"
          }
