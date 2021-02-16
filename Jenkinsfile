@@ -13,7 +13,7 @@ pipeline {
       stage('Test & Build') {
           steps{
               script {
-                  dockerImage = docker.build imagename
+                  dockerImage = docker.build(imagename, "--target runner")
               }
           }
       }
