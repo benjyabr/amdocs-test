@@ -6,7 +6,8 @@ COPY app/package-lock.json .
 
 run npm install
 COPY app/ .
-EXPOSE 3000
 
 run npm run test
+EXPOSE 3000
 entrypoint ["npm","start"] 
+
