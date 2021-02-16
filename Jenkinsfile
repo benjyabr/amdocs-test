@@ -39,10 +39,17 @@ pipeline {
   stage('Deploy App') {
      steps {
        script {
+         k8sNameSpace = "weather"
+         k8sReleaseName = benjy-weather
          dir('chart') {
-          sh "kubectl delete svc benjy-weather -n weather --ignore-not-found"   
-          sh "helm uninstall benjy-weather -n weather "
-          sh "helm upgrade --install --force benjy-weather . -n weather --wait"
+           sh "kubectl delete svc ${k8sReleaseName} -n ${k8sNameSpace} --ignore-not-found"   
+          temp = sh (
+            script: "helm list --filter '${k8sReleaseName}' | grep benjy-weather",
+          returnStdout: true)
+        if(temp){
+            sh "helm uninstall ${k8sReleaseName} -n ${k8sNameSpace} "
+        }          
+          sh "helm upgrade --install --force ${k8sReleaseName} . -n ${k8sNameSpace} --wait --create-namespace"
          }
        }
      }
