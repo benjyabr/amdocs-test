@@ -3,6 +3,8 @@ pipeline {
       imagename = "benjyabr/amdocstest"
       registryCredential = 'dockerhub-credentials'
       dockerImage = ''
+      k8sNameSpace = "weather"
+      k8sReleaseName = "benjy-weather"
   }
   agent {
     label "main" 
@@ -39,8 +41,7 @@ pipeline {
   stage('Deploy App') {
      steps {
        script {
-         k8sNameSpace = "weather"
-         k8sReleaseName = "benjy-weather"
+         
          dir('chart') {
            sh "kubectl delete svc ${k8sReleaseName} -n ${k8sNameSpace} --ignore-not-found"       
            try{
@@ -68,10 +69,10 @@ pipeline {
      steps {
        script {
          servicePort = sh (
-          script: "kubectl get --namespace grafana -o jsonpath=\"{.spec.ports[0].nodePort}\" services grafana-test",
+          script: "kubectl get --namespace ${k8sNameSpace} -o jsonpath=\"{.spec.ports[0].nodePort}\" services grafana-test",
           returnStdout: true)
          serviceIP = sh (
-          script: "kubectl get nodes --namespace grafana -o jsonpath=\"{.items[0].status.addresses[0].address}\"",
+          script: "kubectl get nodes --namespace ${k8sNameSpace} -o jsonpath=\"{.items[0].status.addresses[0].address}\"",
           returnStdout: true)
          serviceURL = "http://${serviceIP}:${servicePort}"
          sh "PATH=$PATH:/sbin; JENKINS_NODE_COOKIE=dontkillme  ngrok http  ${serviceURL} --log=stdout > ngrok.OUT &"
