@@ -26,7 +26,7 @@ pipeline {
        script {
          //def serviceIP =sh "minikube service --url grafana-test -n grafana"
          //echo "${serviceIP}"
-         def servicePort =sh kubectl get --namespace grafana -o jsonpath=\"{.spec.ports[0].nodePort}\" services grafana-test"
+         def servicePort =sh "kubectl get --namespace grafana -o jsonpath=\"{.spec.ports[0].nodePort}\" services grafana-test"
          def serviceIP =sh "kubectl get nodes --namespace grafana -o jsonpath=\"{.items[0].status.addresses[0].address}\""
          echo "http://${serviceIP+servicePort}"
          sh(script: "ngrok", args: [serviceIP, "--log=ngrok.OUT", ">", "/dev/null", "&"])
