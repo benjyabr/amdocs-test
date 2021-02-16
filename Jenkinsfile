@@ -39,14 +39,25 @@ pipeline {
   stage('Deploy App') {
      steps {
        script {
-         dir('grafanachart') {
-          sh "kubectl delete svc grafana-test -n grafana --ignore-not-found"   
-          sh "helm uninstall grafana-test -n grafana "
-          sh "helm upgrade --install --force grafana-test . -n grafana --wait"
+         dir('chart') {
+          sh "kubectl delete svc benjy-weather -n weather --ignore-not-found"   
+          sh "helm uninstall benjy-weather -n weather "
+          sh "helm upgrade --install --force benjy-weather . -n weather --wait"
          }
        }
      }
   }
+  //stage('Deploy App') {
+  //   steps {
+  //     script {
+  //       dir('grafanachart') {
+  //        sh "kubectl delete svc grafana-test -n grafana --ignore-not-found"   
+  //        sh "helm uninstall grafana-test -n grafana "
+  //        sh "helm upgrade --install --force grafana-test . -n grafana --wait"
+  //       }
+  //     }
+  //   }
+ // }
     stage('Expose ngrok') {
      steps {
        script {
