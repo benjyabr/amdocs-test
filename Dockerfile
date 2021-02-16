@@ -1,4 +1,4 @@
-FROM node:13.2.0
+FROM node:13.2.0 as runner
 
 WORKDIR /app
 COPY app/package.json .
