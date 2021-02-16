@@ -42,14 +42,13 @@ pipeline {
          k8sNameSpace = "weather"
          k8sReleaseName = "benjy-weather"
          dir('chart') {
-           sh "kubectl delete svc ${k8sReleaseName} -n ${k8sNameSpace} --ignore-not-found"   
-          temp = sh (
-            script: "helm list --filter ${k8sReleaseName} | grep ${k8sReleaseName}",
-          returnStdout: true)
-        if(temp){
-            sh "helm uninstall ${k8sReleaseName} -n ${k8sNameSpace} "
-        }          
-          sh "helm upgrade --install --force ${k8sReleaseName} . -n ${k8sNameSpace} --wait --create-namespace"
+           sh "kubectl delete svc ${k8sReleaseName} -n ${k8sNameSpace} --ignore-not-found"       
+           try{
+              sh "helm uninstall ${k8sReleaseName} -n ${k8sNameSpace} "
+           } catch (err) {
+            echo "No Release Yet, didn't uninstall"
+           }
+           sh "helm upgrade --install --force ${k8sReleaseName} . -n ${k8sNameSpace} --wait --create-namespace"
          }
        }
      }
