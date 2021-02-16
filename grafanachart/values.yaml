@@ -121,8 +121,8 @@ podPortName: grafana
 ## ref: http://kubernetes.io/docs/user-guide/services/
 ##
 service:
-  type: ClusterIP
-  port: 80
+  type: NodePort 
+  port: 808
   targetPort: 3000
     # targetPort: 4181 To be used with a proxy extraContainer
   annotations: {}
@@ -179,13 +179,13 @@ ingress:
   #    hosts:
   #      - chart-example.local
 
-resources: {}
-#  limits:
-#    cpu: 100m
-#    memory: 128Mi
-#  requests:
-#    cpu: 100m
-#    memory: 128Mi
+resources: 
+ limits:
+   cpu: 100m
+   memory: 128Mi
+ requests:
+   cpu: 100m
+   memory: 128Mi
 
 ## Node labels for pod assignment
 ## ref: https://kubernetes.io/docs/user-guide/node-selection/
