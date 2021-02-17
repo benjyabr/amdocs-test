@@ -13,6 +13,5 @@ RUN npm run test
 
 FROM base as prodline
 WORKDIR /app 
-RUN ls -alhR ./
 COPY app/public ./public
 ENTRYPOINT npm start
