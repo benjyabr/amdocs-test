@@ -7,7 +7,7 @@ let app = require('../server.js');
 describe('Test that root is accessible', () => {
     test('It should response with success code', (done) => {
         request(app).get('/').then((response) => {
-            expect(response.statusCode).toBe(400);
+            expect(response.statusCode).toBe(200);
             done();
         });
     });
