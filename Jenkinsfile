@@ -65,7 +65,7 @@ pipeline {
                       script: "awk -F \"=\" '/https:/{print \$NF}' ngrok.OUT",
                       returnStdout: true)
                   if(ngrokOutput) {
-                      echo "Tunnel will be available for two hours at URL: ${temp}"
+                      echo "Tunnel will be available for two hours at URL: ${ngrokOutput}"
                   }
                   else{
                       echo "Tunnel Failed, Check "
