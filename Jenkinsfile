@@ -1,3 +1,4 @@
+#!groovy
 pipeline {
     environment {
         imagename = "benjyabr/amdocstest"
