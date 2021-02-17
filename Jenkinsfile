@@ -60,7 +60,7 @@ pipeline {
                       returnStdout: true)
                   serviceURL = "http://${serviceIP}:${servicePort}"
                   sh "PATH=$PATH:/sbin; JENKINS_NODE_COOKIE=dontkillme  ngrok http  ${serviceURL} --log=stdout > ngrok.OUT &"
-                  sleep time: 1000, unit: 'MILLISECONDS'
+                  sleep time: 2500, unit: 'MILLISECONDS'
                   ngrokOutput = sh (
                       script: "awk -F \"=\" '/https:/{print \$NF}' ngrok.OUT",
                       returnStdout: true)
